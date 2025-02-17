@@ -12,4 +12,8 @@ render ({:template=>"director_templates/list"})
 
   end
 
-end
+    def junior
+  render ({:template=>"director_templates/young"})
+    end
+
+  end
