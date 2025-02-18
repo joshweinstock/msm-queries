@@ -1,7 +1,8 @@
 <h1>Youngest director</h1>
 
 
-<% @youngest_director = Director.where.not(dob: nil).order(dob: :desc).first %>
+<% @youngest_directors = Director.where.not(dob: nil).order(dob: :desc)(0) %>
+
 
 <p><%= @youngest_director %></p>
 
