@@ -1,5 +1,10 @@
 <h1>Youngest director</h1>
 
 
-<% Director.all.each do |a_director|%>
-<%=a_director.dob%>
+<% @youngest_director = Director.where.not(dob: nil).order(dob: :desc).first %>
+
+<p><%= @youngest_director %></p>
+
+<p>The youngest director in our dataset right now is 
+   <a href="/directors/<%= @youngest_director.id %>"><%= @youngest_director.name %></a>.
+</p>
