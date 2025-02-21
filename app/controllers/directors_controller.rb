@@ -13,7 +13,15 @@ render ({:template=>"director_templates/list"})
   end
 
     def junior
-  render ({:template=>"director_templates/young"})
+      all_directors=Director.where.not({ :dob => nil }).order({ :dob => :desc })
+      @youngest_director=all_directors.at(0)
+      render ({:template=>"director_templates/young"})
+    end
+
+    def senior
+      all_directors=Director.where.not({ :dob => nil }).order({ :dob => :asc })
+      @oldest_director=all_directors.at(0)
+      render ({:template=>"director_templates/old"})
     end
 
   end
